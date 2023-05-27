@@ -237,7 +237,7 @@ class _InventarioPGCState extends State<InventarioPGC> {
         title: Text('Inventariando ando'),
         actions: [
           GestureDetector(
-            onTap: (){
+            onTap: () async{
               await generarYGuardarExcel();
             },
             child: Icon(Icons.download),
