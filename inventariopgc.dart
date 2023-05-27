@@ -188,16 +188,18 @@ class _InventarioPGCState extends State<InventarioPGC> {
     // Crea una instancia de la clase Excel
     var excel = Excel.createExcel();
     
-    excel.delete('Sheet1');
-
     // Crea una hoja en el archivo de Excel
     var hoja = excel['Inventario'];
+
+    var isSet = excel.setDefaultSheet('Inventario');
 
     // Agrega datos a la hoja de Excel
     hoja.appendRow(['Caja', 'Codigo', 'Cantidad']);
     for(var product in productos){
       hoja.appendRow([product.caja, product.codigo, product.cantidad]);
     }
+
+    excel.delete('Sheet1');
 
     // Obtiene el directorio de documentos del dispositivo
     var directorio = await getApplicationDocumentsDirectory();
