@@ -199,7 +199,7 @@ class _InventarioPGCState extends State<InventarioPGC> {
 
     // Obtiene el directorio de documentos del dispositivo
     var directorio = await getApplicationDocumentsDirectory();
-    var ruta = '${directorio.path}/archivo_excel.xlsx';
+    var ruta = '${directorio!.path}/archivo_excel.xlsx';
 
     // Guarda el archivo de Excel en la ruta especificada
     await excel.save(ruta);
@@ -217,7 +217,7 @@ class _InventarioPGCState extends State<InventarioPGC> {
 
       // Escribe los bytes en el directorio de almacenamiento externo (tarjeta SD)
       final directorioDescarga = await getExternalStorageDirectory();
-      final archivoDescarga = File('${directorioDescarga.path}/archivo_excel.xlsx');
+      final archivoDescarga = File('${directorioDescarga!.path}/archivo_excel.xlsx');
       await archivoDescarga.writeAsBytes(bytes);
       
       // Abre el archivo despues de descargarlo
