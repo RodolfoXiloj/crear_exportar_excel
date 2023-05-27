@@ -194,7 +194,7 @@ class _InventarioPGCState extends State<InventarioPGC> {
     // Agrega datos a la hoja de Excel
     hoja.appendRow(['Caja', 'Codigo', 'Cantidad']);
     for(var product in productos){
-      hoja.appendRow(product.caja, product.codigo, product.cantidad);
+      hoja.appendRow([product.caja, product.codigo, product.cantidad]);
     }
 
     // Obtiene el directorio de documentos del dispositivo
