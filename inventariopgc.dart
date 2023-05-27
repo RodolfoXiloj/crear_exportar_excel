@@ -199,7 +199,7 @@ class _InventarioPGCState extends State<InventarioPGC> {
 
     // Obtiene el directorio de documentos del dispositivo
     var directorio = await getApplicationDocumentsDirectory();
-    var ruta = '${directorio!.path}/archivo_excel.xlsx';
+    var ruta = '${directorio.path}/archivo_excel.xlsx';
 
     // Guarda el archivo de Excel en la ruta especificada
     var bytes = excel.encode()!;
@@ -235,6 +235,14 @@ class _InventarioPGCState extends State<InventarioPGC> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Inventariando ando'),
+        actions: [
+          GestureDetector(
+            onTap: (){
+              await generarYGuardarExcel();
+            },
+            child: Icon(Icons.download),
+          ),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
