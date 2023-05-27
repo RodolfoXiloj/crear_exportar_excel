@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:excel/excel.dart';
+import 'package:open_file/open_file.dart';
 import 'dart:io';
 
 class InventarioPGC extends StatefulWidget {
