@@ -202,7 +202,11 @@ class _InventarioPGCState extends State<InventarioPGC> {
     var ruta = '${directorio!.path}/archivo_excel.xlsx';
 
     // Guarda el archivo de Excel en la ruta especificada
-    await excel.save(ruta);
+    excel.encode().then((onValue) {
+      File(ruta)
+        ..createSync(recursive: true)
+        ..writeAsBytesSync(onValue);
+    });
 
     print('Archivo Excel generado y guardado en: $ruta');
 
