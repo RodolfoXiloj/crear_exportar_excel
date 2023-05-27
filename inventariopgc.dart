@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:excel/excel.dart';
+import 'dart:io';
 
 class InventarioPGC extends StatefulWidget {
   @override
@@ -188,7 +191,7 @@ class _InventarioPGCState extends State<InventarioPGC> {
     var hoja = excel['Hoja1'];
 
     // Agrega datos a la hoja de Excel
-    hoja.appendRow(['Nombre', 'Edad']);
+    hoja.appendRow(['Caja', 'Codigo', 'Cantidad']);
     for(Producto product in productos){
       hoja.appendRow(product.caja, product.codigo, product.cantidad);
     }
