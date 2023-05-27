@@ -187,7 +187,7 @@ class _InventarioPGCState extends State<InventarioPGC> {
   Future<void> generarYGuardarExcel() async {
     // Crea una instancia de la clase Excel
     var excel = Excel.createExcel();
-
+    excel.remove('Sheet1');
     // Crea una hoja en el archivo de Excel
     var hoja = excel['Hoja1'];
 
